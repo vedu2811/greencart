@@ -18,7 +18,10 @@ const Mainbanner = () => {
       <div>
         <h1>Freshness You Can Trust, Savings You will Love! </h1>
       </div>
-      <Link className="group flex items-center gap-2 px-7 md:px-9 py-3 bg-primary hover-bg-primary-dull transition rounded text-white cursor-pointer">
+      <Link
+        to={"/products"}
+        className="group flex items-center gap-2 px-7 md:px-9 py-3 bg-primary hover-bg-primary-dull transition rounded text-white cursor-pointer"
+      >
         Shop Now
         <img
           className="transition group-focus:translate-x-1"
