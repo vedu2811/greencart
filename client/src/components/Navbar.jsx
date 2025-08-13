@@ -26,11 +26,6 @@ const Navbar = () => {
       <div className="hidden sm:flex items-center gap-8">
         <NavLink to={"/"}>Home</NavLink>
         <NavLink to={"/products"}>All Product</NavLink>
-        {user && (
-          <NavLink to="/" onCLick={() => setOpen(false)}>
-            My Orders
-          </NavLink>
-        )}
         <NavLink to={"/"}>Contact</NavLink>
 
         <div className="hidden lg:flex items-center text-sm gap-2 border border-gray-300 px-3 rounded-full">
@@ -49,9 +44,22 @@ const Navbar = () => {
           </button>
         </div>
 
-        <button className="cursor-pointer px-8 py-2 bg-primary hover:bg-primary-dull transition text-white rounded-full">
-          Login
-        </button>
+        {!user ? (
+          <button
+            onClick={() => setShowUserLogin(true)}
+            className="cursor-pointer px-8 py-2 bg-primary hover:bg-primary-dull transition text-white rounded-full"
+          >
+            Login
+          </button>
+        ) : (
+          <div>
+            <img src={assets.profile_icon} className="w-10" alt="profile" />
+            <ul>
+              <li>My Orders</li>
+              <li>Logout</li>
+            </ul>
+          </div>
+        )}
       </div>
 
       <button
