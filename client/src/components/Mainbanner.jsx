@@ -14,6 +14,9 @@ const Mainbanner = () => {
         alt="banner"
         className="w-full md:hidden"
       />
+      <div>
+        <h1>Freshness You Can Trust, Savings You will Love! </h1>
+      </div>
     </div>
   );
 };
