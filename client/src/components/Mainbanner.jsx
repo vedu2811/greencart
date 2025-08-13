@@ -1,5 +1,6 @@
 import React from "react";
 import { assets } from "../assets/assets";
+import { Link } from "react-router-dom";
 
 const Mainbanner = () => {
   return (
@@ -17,6 +18,10 @@ const Mainbanner = () => {
       <div>
         <h1>Freshness You Can Trust, Savings You will Love! </h1>
       </div>
+      <Link>
+        Shop Now
+        <img src={assets.white_arrow_icon} alt="arrow" />
+      </Link>
     </div>
   );
 };
