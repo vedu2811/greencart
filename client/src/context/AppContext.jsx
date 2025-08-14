@@ -22,7 +22,7 @@ export const AppContextProvider = ({ children }) => {
   };
 
   // Add Product to Cart
-  const addToCart = () => {
+  const addToCart = (itemId) => {
     let cartData = structuredClone(cartItems);
     if (cartData[itemId]) {
       cartData[itemId] += 1;
@@ -31,6 +31,14 @@ export const AppContextProvider = ({ children }) => {
     }
     setCartItems(cartData);
     toast.success("Added to Cart");
+  };
+
+  // Update Cart Item Qty
+  const updateCartItem = (itemId, quantity) => {
+    let cartData = structuredClone(cartItems);
+    cartData[itemId] = quantity;
+    setCartItems[cartData];
+    toast.success("Cart Updated");
   };
 
   useEffect(() => {
@@ -48,6 +56,7 @@ export const AppContextProvider = ({ children }) => {
     products,
     currency,
     addToCart,
+    updateCartItem,
   };
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
