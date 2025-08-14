@@ -29,7 +29,7 @@ const ProductCard = ({ product }) => {
                 alt=""
               />
             ))}
-          <p>({product.rating})</p>
+          <p>(4)</p>
         </div>
         <div className="flex items-end justify-between mt-3">
           <p className="md:text-xl text-base font-medium text-indigo-500">
