@@ -14,6 +14,13 @@ const BottomBanner = () => {
         alt="banner"
         className="w-full md:hidden"
       />
+      <div>
+        <div>
+          <h1 className="text-2xl md:text-3xl font-semibold text-primary mb-6">
+            Why We Are the Best?
+          </h1>
+        </div>
+      </div>
     </div>
   );
 };
