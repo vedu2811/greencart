@@ -6,6 +6,8 @@ import { dummyProducts } from "../assets/assets";
 export const AppContext = createContext();
 
 export const AppContextProvider = ({ children }) => {
+  const currency = import.meta.VITE_CURRENCY;
+
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [isSeller, setIsSeller] = useState(false);
@@ -29,6 +31,7 @@ export const AppContextProvider = ({ children }) => {
     showUserLogin,
     setShowUserLogin,
     products,
+    currency,
   };
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
