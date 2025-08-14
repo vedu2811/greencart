@@ -8,7 +8,7 @@ import { useAppContext } from "../context/AppContext";
 const Navbar = () => {
   const [open, setOpen] = React.useState(false);
 
-  const { user, setUser, showUserLogi, setShowUserLogin, navigate } =
+  const { user, setUser, showUserLogin, setShowUserLogin, navigate } =
     useAppContext();
 
   const logout = async () => {
