@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useAppContext } from "../context/AppContext";
+import ProductCard from "../components/ProductCard";
 
 const AllProducts = () => {
   const { products, searchQuery } = useAppContext();
-  const { filterProducts, setFilterProducts } = useState([]);
+  const [filterProducts, setFilterProducts] = useState([]);
 
   useEffect(() => {
     if (searchQuery.length > 0) {
