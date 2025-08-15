@@ -1,6 +1,17 @@
 import { useState } from "react";
+import { useAppContext } from "../context/AppContext";
 
 const Cart = () => {
+  const {
+    products,
+    currency,
+    cartItems,
+    removeFromCart,
+    getCartCount,
+    updateCartItems,
+    navigate,
+    getCartAmount,
+  } = useAppContext();
   const [showAddress, setShowAddress] = useState(false);
 
   return (
