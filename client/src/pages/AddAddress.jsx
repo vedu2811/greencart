@@ -15,6 +15,18 @@ const inputField = ({ type, placeholder, name, handleChange, address }) => (
 );
 
 const AddAddress = () => {
+  const [address, setAddress] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    street: "",
+    city: "",
+    state: "",
+    zipcode: "",
+    country: "",
+    phone: "",
+  });
+
   const onSubmitHandler = async (e) => {
     e.preventDefault();
   };
