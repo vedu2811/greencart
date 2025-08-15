@@ -2,7 +2,16 @@ import React from "react";
 import { assets } from "../assets/assets";
 
 // Input Field Component
-const inputField = () => <input type="text" />;
+const inputField = ({ type, placeholder, name, handleChange, address }) => (
+  <input
+    type={type}
+    placeholder={placeholder}
+    onChange={handleChange}
+    name={name}
+    value={address[name]}
+    required
+  />
+);
 
 const AddAddress = () => {
   const onSubmitHandler = async (e) => {
