@@ -11,6 +11,16 @@ const ProductDetails = () => {
 
   const product = products.find((item) => item._id === id);
 
+  useEffect(() => {
+    if (products.length > 0) {
+      let productsCopy = products.slice();
+      productsCopy = productsCopy.filter(
+        (item) => product.category === item.category
+      );
+      setRelatedProducts(productsCopy.slice(0, 5));
+    }
+  }, [products]);
+
   return (
     product && (
       <div className="max-w-6xl w-full px-6">
