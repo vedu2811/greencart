@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
+import { useAppContext } from "../context/AppContext";
+import { dummyOrders } from "../assets/assets";
 
 const MyOrders = () => {
+  const [myOrders, setMyOrders] = useState([]);
+  const { currency } = useAppContext();
+
+  const fetchMyOrders = async () => {
+    setMyOrders(dummyOrders);
+  };
+
   return (
     <div className="mt-16 pb-16">
       <div className="flex flex-col items-end w-max mb-8">
