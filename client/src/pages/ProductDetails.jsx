@@ -103,7 +103,10 @@ const ProductDetails = () => {
                 Add to Cart
               </button>
               <button
-                onClick={() => addToCart(product._id)}
+                onClick={() => {
+                  addToCart(product._id);
+                  navigate("/cart");
+                }}
                 className="w-full py-3.5 cursor-pointer font-medium bg-indigo-500 text-white hover:bg-indigo-600 transition"
               >
                 Buy now
