@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { useAppContext } from "../context/AppContext";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { assets } from "../assets/assets";
 
 const ProductDetails = () => {
   const { products, navigate, currency, addToCart } = useAppContext();
   const { id } = useParams();
 
-  const [relatedProducts, setRelatedProducts] = useState(product.images[0]);
+  const [relatedProducts, setRelatedProducts] = useState([]);
   const [thumbnail, setThumbnail] = useState(null);
 
   const product = products.find((item) => item._id === id);
