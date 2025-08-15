@@ -109,7 +109,13 @@ const Cart = () => {
           </div>
         ))}
 
-        <button className="group cursor-pointer flex items-center mt-8 gap-2 text-indigo-500 font-medium">
+        <button
+          onClick={() => {
+            navigate("/products");
+            scrollTo(0, 0);
+          }}
+          className="group cursor-pointer flex items-center mt-8 gap-2 text-indigo-500 font-medium"
+        >
           <img
             src={assets.arrow_right_icon_colored}
             alt="arrow"
