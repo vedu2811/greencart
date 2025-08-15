@@ -26,10 +26,24 @@ const AddAddress = () => {
       </p>
       <div className="flex flex-col-reverse md:flex-row justify-between mt-10">
         <div className="flex-1 max-w-md">
-          <form
-            onSubmit={onSubmitHandler}
-            className="space-y-3 mt-6 text-sm"
-          ></form>
+          <form onSubmit={onSubmitHandler} className="space-y-3 mt-6 text-sm">
+            <div>
+              <inputField
+                handleChange={handleChange}
+                address={address}
+                name="firstName"
+                type="text"
+                placeholder="First Name"
+              />
+              <inputField
+                handleChange={handleChange}
+                address={address}
+                name="lastName"
+                type="text"
+                placeholder="Last Name"
+              />
+            </div>
+          </form>
         </div>
         <img
           src={assets.add_address_iamge}
