@@ -24,7 +24,13 @@ const AllProducts = () => {
         <div className="w-16 h-0.5 bg-primary rounded-full"></div>
       </div>
 
-      <div></div>
+      <div>
+        {filterProducts
+          .filter((product) => product.inStock)
+          .map((product, index) => (
+            <ProductCard key={index} product={product} />
+          ))}
+      </div>
     </div>
   );
 };
