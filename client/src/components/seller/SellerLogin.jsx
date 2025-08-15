@@ -17,7 +17,20 @@ const SellerLogin = () => {
     }
   }, [isSeller]);
 
-  return !isSeller && <form onSubmit={onSubmitHandler}></form>;
+  return (
+    !isSeller && (
+      <form
+        onSubmit={onSubmitHandler}
+        className="min-h-screen flex items-center text-sm text-gray-600"
+      >
+        <div>
+          <p className="text-2xl font-medium m-auto">
+            <span className="text-primary">Seller</span> Login
+          </p>
+        </div>
+      </form>
+    )
+  );
 };
 
 export default SellerLogin;
