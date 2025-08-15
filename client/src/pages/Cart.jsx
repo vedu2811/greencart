@@ -9,7 +9,7 @@ const Cart = () => {
     cartItems,
     removeFromCart,
     getCartCount,
-    updateCartItems,
+    updateCartItem,
     navigate,
     getCartAmount,
   } = useAppContext();
@@ -81,7 +81,13 @@ const Cart = () => {
                   </p>
                   <div className="flex items-center">
                     <p>Qty:</p>
-                    <select className="outline-none">
+                    <select
+                      onChange={(e) =>
+                        updateCartItem(product._id, Number(e.target.value))
+                      }
+                      value={cartItems[product._id]}
+                      className="outline-none"
+                    >
                       {Array(
                         cartItems[product._id] > 9 ? cartItems[product._id] : 9
                       )
