@@ -13,14 +13,14 @@ const ProductDetails = () => {
   const product = products.find((item) => item._id === id);
 
   useEffect(() => {
-    if (products.length > 0) {
+    if (products.length > 0 && product) {
       let productsCopy = products.slice();
       productsCopy = productsCopy.filter(
         (item) => product.category === item.category
       );
       setRelatedProducts(productsCopy.slice(0, 5));
     }
-  }, [products]);
+  }, [products, product]);
 
   useEffect(() => {
     setThumbnail(product?.image[0] ? product.image[0] : null);
@@ -31,9 +31,9 @@ const ProductDetails = () => {
       <div className="mt-12">
         <p>
           <Link to={"/"}>Home</Link> /<Link to={"/products"}>Products</Link> /
-          <Link to={`/product/${product.category.toLowerCase()}`}>
+          <Link to={`/products/${product.category.toLowerCase()}`}>
             {product.category}
-          </Link>{" "}
+          </Link>
           /<span className="text-indigo-500"> {product.name}</span>
         </p>
 
@@ -68,6 +68,7 @@ const ProductDetails = () => {
                 .fill("")
                 .map((_, i) => (
                   <img
+                    key={i}
                     src={i < 4 ? assets.star_icon : assets.star_dull_icon}
                     alt="star"
                     className="w-3.5 md:w-4"
