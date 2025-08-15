@@ -70,16 +70,21 @@ const ProductDetails = () => {
                   <img
                     src={i < 4 ? assets.star_icon : assets.star_dull_icon}
                     alt="star"
+                    className="w-3.5 md:w-4"
                   />
                 ))}
-              <p className="text-base ml-2">({product.rating})</p>
+              <p className="text-base ml-2">(4)</p>
             </div>
 
             <div className="mt-6">
               <p className="text-gray-500/70 line-through">
-                MRP: ${product.price}
+                MRP: {currency}
+                {product.price}
               </p>
-              <p className="text-2xl font-medium">MRP: ${product.offerPrice}</p>
+              <p className="text-2xl font-medium">
+                MRP: {currency}
+                {product.offerPrice}
+              </p>
               <span className="text-gray-500/70">(inclusive of all taxes)</span>
             </div>
 
