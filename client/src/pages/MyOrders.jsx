@@ -35,13 +35,19 @@ const MyOrders = () => {
           </p>
           {order.items.map((item, index) => (
             <div>
-              <div>
-                <div>
+              <div className="flex items-center mb-4 md:mb-0">
+                <div className="bg-primary/10 p-4 rounded-lg">
                   <img
                     src={item.product.image[0]}
                     alt="product-image"
                     className="w-16 h-16"
                   />
+                  <div className="ml-4">
+                    <h2 className="text-4xl font-medium text-gray-800">
+                      {item.product.name}
+                    </h2>
+                    <p>Category: {item.product.category}</p>
+                  </div>
                 </div>
               </div>
             </div>
