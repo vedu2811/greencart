@@ -121,6 +121,10 @@ const AddAddress = () => {
               type="text"
               placeholder="Phone"
             />
+
+            <button className="w-full mt-6 bg-primary text-white py-3 hover:bg-primary-dull transition cursor-pointer uppercase">
+              Save Address
+            </button>
           </form>
         </div>
         <img
