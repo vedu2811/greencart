@@ -75,6 +75,7 @@ export const AppContextProvider = ({ children }) => {
         totalAmount += itemInfo.offerPrice * cartItems[items];
       }
     }
+    return totalAmount;
   };
 
   useEffect(() => {
