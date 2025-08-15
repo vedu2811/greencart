@@ -30,6 +30,8 @@ const Cart = () => {
     setCartArray(tempArray);
   };
 
+  const placeOrder = async () => {};
+
   useEffect(() => {
     if (products.length > 0 && cartItems) {
       getCart();
