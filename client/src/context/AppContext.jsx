@@ -17,7 +17,7 @@ export const AppContextProvider = ({ children }) => {
 
   const [cartItems, setCartItems] = useState({});
 
-  const [searchQuery, setSearchQuery] = useState({});
+  const [searchQuery, setSearchQuery] = useState("");
 
   // Fetch All Products
   const fetchProducts = async () => {
@@ -40,7 +40,7 @@ export const AppContextProvider = ({ children }) => {
   const updateCartItem = (itemId, quantity) => {
     let cartData = structuredClone(cartItems);
     cartData[itemId] = quantity;
-    setCartItems[cartData];
+    setCartItems(cartData);
     toast.success("Cart Updated");
   };
 
