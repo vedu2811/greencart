@@ -80,7 +80,9 @@ const Cart = () => {
                   <div className="flex items-center">
                     <p>Qty:</p>
                     <select className="outline-none">
-                      {Array(5)
+                      {Array(
+                        cartItems[product._id] > 9 ? cartItems[product._id] : 9
+                      )
                         .fill("")
                         .map((_, index) => (
                           <option key={index} value={index + 1}>
@@ -93,7 +95,8 @@ const Cart = () => {
               </div>
             </div>
             <p className="text-center">
-              ${product.offerPrice * product.quantity}
+              {currency}
+              {product.offerPrice * product.quantity}
             </p>
             <button className="cursor-pointer mx-auto">
               <svg
