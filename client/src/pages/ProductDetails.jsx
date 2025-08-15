@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAppContext } from "../context/AppContext";
 import { useParams } from "react-router-dom";
 
@@ -6,8 +6,10 @@ const ProductDetails = () => {
   const { products, navigate, currency, addToCart } = useAppContext();
   const { id } = useParams();
 
-  const [thumbnail, setThumbnail] = useState(null);
   const [relatedProducts, setRelatedProducts] = useState(product.images[0]);
+  const [thumbnail, setThumbnail] = useState(null);
+
+  const product = products.find((item) => item._id === id);
 
   return (
     product && (
