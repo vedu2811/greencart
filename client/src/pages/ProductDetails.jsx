@@ -123,13 +123,16 @@ const ProductDetails = () => {
             <p className="text-3xl font-medium">Related Products</p>
             <div className="w-20 h-0.5 bg-primary rounded-full mt-2"></div>
           </div>
-          <div>
+          <div className="grid mt-6 w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 md:gap-6 gap-3">
             {relatedProducts
               .filter((product) => product.inStock)
               .map((product, index) => (
                 <ProductCard key={index} product={product} />
               ))}
           </div>
+          <button className="mx-auto cursor-pointer px-12 my-16 py-2.5 border rounded text-primary hover:bg-primary/10 transition">
+            See more
+          </button>
         </div>
       </div>
     )
