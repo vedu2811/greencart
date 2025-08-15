@@ -20,6 +20,18 @@ const MyOrders = () => {
         <p className="text-2xl font-medium uppercase">My Orders</p>
         <div className="w-16 h-0.5 bg-primary rounded-full"></div>
       </div>
+      {myOrders.map((order, index) => (
+        <div>
+          <p>
+            <span>OrderId : {order._id}</span>
+            <span>Payment : {order.paymentType}</span>
+            <span>
+              Total Amount : {currency}
+              {order.amount}
+            </span>
+          </p>
+        </div>
+      ))}
     </div>
   );
 };
