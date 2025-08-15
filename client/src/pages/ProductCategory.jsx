@@ -15,7 +15,15 @@ const ProductCategory = () => {
     (product) => product.category.toLowerCase() === category
   );
 
-  return <div></div>;
+  return (
+    <div>
+      {searchCategory && (
+        <div>
+          <p>{searchCategory.text.toUpperCase()}</p>
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default ProductCategory;
