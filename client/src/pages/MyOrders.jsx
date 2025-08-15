@@ -33,6 +33,19 @@ const MyOrders = () => {
               {order.amount}
             </span>
           </p>
+          {order.items.map((item, index) => (
+            <div>
+              <div>
+                <div>
+                  <img
+                    src={item.product.image[0]}
+                    alt="product-image"
+                    className="w-16 h-16"
+                  />
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       ))}
     </div>
