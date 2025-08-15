@@ -43,7 +43,7 @@ const Cart = () => {
       <div className="flex-1 max-w-4xl">
         <h1 className="text-3xl font-medium mb-6">
           Shopping Cart{" "}
-          <span className="text-sm text-primary">{getCartCount()}</span>
+          <span className="text-sm text-primary">{getCartCount()} Items</span>
         </h1>
 
         <div className="grid grid-cols-[2fr_1fr_1fr] text-gray-500 text-base font-medium pb-3">
@@ -204,14 +204,14 @@ const Cart = () => {
             <span>Tax (2%)</span>
             <span>
               {currency}
-              {getCartAmount() * 0.02}
+              {(getCartAmount() * 0.02).toFixed(2)}
             </span>
           </p>
           <p className="flex justify-between text-lg font-medium mt-3">
             <span>Total Amount:</span>
             <span>
               {currency}
-              {getCartAmount() + getCartAmount() * 0.02}
+              {(getCartAmount() + getCartAmount() * 0.02).toFixed(2)}
             </span>
           </p>
         </div>
