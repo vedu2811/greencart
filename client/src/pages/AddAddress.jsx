@@ -2,7 +2,7 @@ import React from "react";
 import { assets } from "../assets/assets";
 
 // Input Field Component
-const inputField = ({ type, placeholder, name, handleChange, address }) => (
+const InputField = ({ type, placeholder, name, handleChange, address }) => (
   <input
     className="w-full px-2 py-2.5 border border-gray-500/30 rounded outlie-none text-gray-500 focus:border-primary transition"
     type={type}
@@ -27,6 +27,15 @@ const AddAddress = () => {
     phone: "",
   });
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setAddress((prevAddress) => ({
+      ...AddAddress,
+      [name]: value,
+    }));
+  };
+
   const onSubmitHandler = async (e) => {
     e.preventDefault();
   };
@@ -40,14 +49,14 @@ const AddAddress = () => {
         <div className="flex-1 max-w-md">
           <form onSubmit={onSubmitHandler} className="space-y-3 mt-6 text-sm">
             <div>
-              <inputField
+              <InputField
                 handleChange={handleChange}
                 address={address}
                 name="firstName"
                 type="text"
                 placeholder="First Name"
               />
-              <inputField
+              <InputField
                 handleChange={handleChange}
                 address={address}
                 name="lastName"
