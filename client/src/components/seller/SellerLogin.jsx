@@ -6,13 +6,18 @@ const SellerLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const onSubmitHandler = async (event) => {
+    event.preventDefault();
+    setIsSeller(true);
+  };
+
   useEffect(() => {
     if (isSeller) {
       navigate("/seller");
     }
   }, [isSeller]);
 
-  return <div>SellerLogin</div>;
+  return !isSeller && <form onSubmit={onSubmitHandler}></form>;
 };
 
 export default SellerLogin;
