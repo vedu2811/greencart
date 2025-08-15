@@ -2,6 +2,7 @@ import React from "react";
 import { useAppContext } from "../context/AppContext";
 import { useParams } from "react-router-dom";
 import { categories } from "../assets/assets";
+import ProductCard from "../components/ProductCard";
 
 const ProductCategory = () => {
   const { products } = useAppContext();
@@ -24,6 +25,15 @@ const ProductCategory = () => {
           </p>
           <div className="w-16 h-0.5 bg-primary rounded-full"></div>
         </div>
+      )}
+      {filteredProducts.length > 0 ? (
+        <div>
+          {filteredProducts.map((product) => (
+            <ProductCard key={product._id} product={product} />
+          ))}
+        </div>
+      ) : (
+        <div></div>
       )}
     </div>
   );
