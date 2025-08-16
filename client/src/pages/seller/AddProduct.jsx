@@ -1,12 +1,13 @@
 import { useState } from "react";
+import { assets } from "../../assets/assets";
 
 const AddProduct = () => {
   const [files, setFiles] = useState([]);
-  const [name, setName] = useState([]);
-  const [description, setDescription] = useState([]);
-  const [category, setCategory] = useState([]);
-  const [price, setPrice] = useState([]);
-  const [offerPrice, setOfferPrice] = useState([]);
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [category, setCategory] = useState("");
+  const [price, setPrice] = useState("");
+  const [offerPrice, setOfferPrice] = useState("");
 
   const onSubmitHandler = async (event) => {
     event.preventDefault();
@@ -26,6 +27,11 @@ const AddProduct = () => {
               .map((_, index) => (
                 <label key={index} htmlFor={`image${index}`}>
                   <input
+                    onChange={(e) => {
+                      const updatedFiles = [...files];
+                      updatedFiles[index] = e.target.files[0];
+                      setFiles(updatedFiles);
+                    }}
                     accept="image/*"
                     type="file"
                     id={`image${index}`}
@@ -33,7 +39,11 @@ const AddProduct = () => {
                   />
                   <img
                     className="max-w-24 cursor-pointer"
-                    src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/e-commerce/uploadArea.png"
+                    src={
+                      files[index]
+                        ? URL.createObjectURL(files[index])
+                        : assets.upload_area
+                    }
                     alt="uploadArea"
                     width={100}
                     height={100}
