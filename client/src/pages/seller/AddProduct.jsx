@@ -57,9 +57,11 @@ const AddProduct = () => {
             Product Name
           </label>
           <input
+            onChange={(e) => setName(e.target.value)}
+            value={name}
             id="product-name"
             type="text"
-            placeholder="Type here"
+            placeholder="Product Name"
             className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40"
             required
           />
