@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAppContext } from "../../context/AppContext";
-import { dummyOrders } from "../../assets/assets";
+import { assets, dummyOrders } from "../../assets/assets";
 
 const Orders = () => {
   const { currency } = useAppContext();
@@ -26,21 +26,15 @@ const Orders = () => {
             <div className="flex gap-5">
               <img
                 className="w-12 h-12 object-cover opacity-60"
-                src={boxIcon}
+                src={assets.box_icon}
                 alt="boxIcon"
               />
               <>
                 {order.items.map((item, index) => (
                   <div key={index} className="flex flex-col justify-center">
                     <p className="font-medium">
-                      {item.product.name}{" "}
-                      <span
-                        className={`text-indigo-500 ${
-                          item.quantity < 2 && "hidden"
-                        }`}
-                      >
-                        x {item.quantity}
-                      </span>
+                      {item.product.name}
+                      <span className="text-primary">x {item.quantity}</span>
                     </p>
                   </div>
                 ))}
