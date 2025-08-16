@@ -1,4 +1,8 @@
+import { useAppContext } from "../../context/AppContext";
+
 const ProductList = () => {
+  const { products, currency } = useAppContext();
+
   return (
     <div className="flex-1 py-10 flex flex-col justify-between">
       <div className="w-full md:p-10 p-4">
