@@ -87,6 +87,8 @@ const AddProduct = () => {
             Category
           </label>
           <select
+            onChange={(e) => setCategory(e.target.value)}
+            value={category}
             id="category"
             className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40"
           >
@@ -108,6 +110,8 @@ const AddProduct = () => {
               Product Price
             </label>
             <input
+              onChange={(e) => setPrice(e.target.value)}
+              value={price}
               id="product-price"
               type="number"
               placeholder="0"
@@ -120,6 +124,8 @@ const AddProduct = () => {
               Offer Price
             </label>
             <input
+              onChange={(e) => setOfferPrice(e.target.value)}
+              value={offerPrice}
               id="offer-price"
               type="number"
               placeholder="0"
