@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { assets } from "../../assets/assets";
+import { assets, categories } from "../../assets/assets";
 
 const AddProduct = () => {
   const [files, setFiles] = useState([]);
@@ -93,13 +93,9 @@ const AddProduct = () => {
             className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40"
           >
             <option value="">Select Category</option>
-            {[
-              { name: "Electronics" },
-              { name: "Clothing" },
-              { name: "Accessories" },
-            ].map((item, index) => (
-              <option key={index} value={item.name}>
-                {item.name}
+            {categories.map((item, index) => (
+              <option key={index} value={item.path}>
+                {item.path}
               </option>
             ))}
           </select>
