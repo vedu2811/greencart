@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import { assets } from "../../assets/assets";
 import { useAppContext } from "../../context/AppContext";
 
@@ -53,11 +53,12 @@ const SellerLayout = () => {
                                 : "hover:bg-gray-100/90 border-white"
                             }`}
             >
-              {item.icon}
+              <img src={item.icon} alt="icon" className="w-7 h-7" />
               <p className="md:block hidden text-center">{item.name}</p>
             </NavLink>
           ))}
         </div>
+        <Outlet />
       </div>
     </>
   );
