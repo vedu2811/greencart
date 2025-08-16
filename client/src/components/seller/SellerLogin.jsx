@@ -45,6 +45,9 @@ const SellerLogin = () => {
               required
             />
           </div>
+          <button className="bg-primary text-white w-full py-2 rounded-md cursor-pointer hover:bg-primary-dull">
+            Login
+          </button>
         </div>
       </form>
     )
