@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import { useAppContext } from "../../context/AppContext";
 
 const Orders = () => {
+  const { currency } = useAppContext();
+  const [orders, setOrders] = useState([]);
+
   return (
     <div className="md:p-10 p-4 space-y-4">
       <h2 className="text-lg font-medium">Orders List</h2>
