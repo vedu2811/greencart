@@ -29,16 +29,16 @@ const Orders = () => {
                 src={assets.box_icon}
                 alt="boxIcon"
               />
-              <>
+              <div>
                 {order.items.map((item, index) => (
                   <div key={index} className="flex flex-col">
                     <p className="font-medium">
-                      {item.product.name}
+                      {item.product.name}{" "}
                       <span className="text-primary"> x {item.quantity}</span>
                     </p>
                   </div>
                 ))}
-              </>
+              </div>
             </div>
 
             <div className="text-sm md:text-base text-black/60">
@@ -49,10 +49,9 @@ const Orders = () => {
                 {order.address.street}, {order.address.city}
               </p>
               <p>
-                {order.address.state},{order.address.zipcode},
+                {order.address.state}, {order.address.zipcode},{" "}
                 {order.address.country}
               </p>
-              <p></p>
               <p>{order.address.phone}</p>
             </div>
 
