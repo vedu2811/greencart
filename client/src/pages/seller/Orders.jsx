@@ -1,62 +1,6 @@
 import React from "react";
 
 const Orders = () => {
-  const boxIcon =
-    "https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/e-commerce/boxIcon.svg";
-
-  const orders = [
-    {
-      id: 1,
-      items: [{ product: { name: "Nike Air Max 270" }, quantity: 1 }],
-      address: {
-        firstName: "John",
-        lastName: "Doe",
-        street: "123 Main St",
-        city: "New York",
-        state: "NY",
-        zipcode: "10001",
-        country: "USA",
-      },
-      amount: 320.0,
-      paymentType: "Credit Card",
-      orderDate: "10/10/2022",
-      isPaid: true,
-    },
-    {
-      id: 1,
-      items: [{ product: { name: "Nike Air Max 270" }, quantity: 1 }],
-      address: {
-        firstName: "John",
-        lastName: "Doe",
-        street: "123 Main St",
-        city: "New York",
-        state: "NY",
-        zipcode: "10001",
-        country: "USA",
-      },
-      amount: 320.0,
-      paymentType: "Credit Card",
-      orderDate: "10/10/2022",
-      isPaid: true,
-    },
-    {
-      id: 1,
-      items: [{ product: { name: "Nike Air Max 270" }, quantity: 1 }],
-      address: {
-        firstName: "John",
-        lastName: "Doe",
-        street: "123 Main St",
-        city: "New York",
-        state: "NY",
-        zipcode: "10001",
-        country: "USA",
-      },
-      amount: 320.0,
-      paymentType: "Credit Card",
-      orderDate: "10/10/2022",
-      isPaid: true,
-    },
-  ];
   return (
     <div className="md:p-10 p-4 space-y-4">
       <h2 className="text-lg font-medium">Orders List</h2>
