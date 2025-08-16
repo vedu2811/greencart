@@ -27,6 +27,14 @@ const SellerLogin = () => {
           <p className="text-2xl font-medium m-auto">
             <span className="text-primary">Seller</span> Login
           </p>
+          <div className="w-full">
+            <p>Email</p>
+            <input type="email" placeholder="email@example.com" />
+          </div>
+          <div className="w-full">
+            <p>Password</p>
+            <input type="password" placeholder="Your Password" />
+          </div>
         </div>
       </form>
     )
