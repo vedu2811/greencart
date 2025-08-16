@@ -21,7 +21,7 @@ const Orders = () => {
         {orders.map((order, index) => (
           <div
             key={index}
-            className="flex flex-col md:grid md:items-center md:flex-row justify-between gap-5 p-5 max-w-4xl rounded-md border border-gray-300"
+            className="flex flex-col md:items-center md:flex-row justify-between gap-5 p-5 max-w-4xl rounded-md border border-gray-300"
           >
             <div className="flex gap-5 max-w-80">
               <img
