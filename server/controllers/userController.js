@@ -2,7 +2,9 @@ import jwt from "jsonwebtoken";
 import User from "../models/user.js";
 import bcrypt from "bcryptjs";
 
+////////////////////////////////////////////////////////////////////
 // Register User : /api/user/register
+////////////////////////////////////////////////////////////////////
 export const register = async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -38,4 +40,13 @@ export const register = async (req, res) => {
   } catch (error) {
     res.json({ success: false, message: error.message });
   }
+};
+
+///////////////////////////////////////////////////////////////////////
+// Login User : /api/user/login
+///////////////////////////////////////////////////////////////////////
+export const login = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+  } catch (error) {}
 };
