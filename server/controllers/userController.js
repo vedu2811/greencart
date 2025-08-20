@@ -20,7 +20,7 @@ export const register = async (req, res) => {
 
     const user = await User.create({ name, email, password: hashedPassword });
 
-    const token = jwt.sign({ id: user._id }, process.nextTick.JWT_SECRET, {
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
       expiresIn: "7d",
     });
 
@@ -35,5 +35,7 @@ export const register = async (req, res) => {
       success: true,
       user: { email: user.email, name: user.name },
     });
-  } catch (error) {}
+  } catch (error) {
+    res.json({ success: false, message: error.message });
+  }
 };
