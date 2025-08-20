@@ -4,6 +4,7 @@ import cors from "cors";
 import "dotenv/config";
 import connectDB from "./configs/db.js";
 import userRouter from "./routes/userRoute.js";
+import sellerRouter from "./routes/sellerRoute.js";
 
 const app = express();
 const port = process.env.PORT || 2811;
@@ -22,8 +23,10 @@ app.get("/", (req, res) => {
   res.send("API is Working");
 });
 
-// Register
+// User Routes
 app.use("/api/user", userRouter);
+// Seller Routes
+app.use("/api/seller", sellerRouter);
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
