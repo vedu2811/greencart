@@ -55,5 +55,10 @@ export const login = async (req, res) => {
         message: "Required fields can't be empty",
       });
     }
+
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.json({ success: false, message: "Invalid email id" });
+    }
   } catch (error) {}
 };
