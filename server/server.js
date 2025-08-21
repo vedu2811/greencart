@@ -5,11 +5,13 @@ import "dotenv/config";
 import connectDB from "./configs/db.js";
 import userRouter from "./routes/userRoute.js";
 import sellerRouter from "./routes/sellerRoute.js";
+import connectCloudinary from "./configs/cloudinary.js";
 
 const app = express();
 const port = process.env.PORT || 2811;
 
 await connectDB();
+await connectCloudinary;
 
 // ALLOW MULTIPLE ORIGINS
 const allowedOrigins = ["http://127.0.0.1:5173"];
