@@ -6,6 +6,7 @@ import connectDB from "./configs/db.js";
 import userRouter from "./routes/userRoute.js";
 import sellerRouter from "./routes/sellerRoute.js";
 import connectCloudinary from "./configs/cloudinary.js";
+import productRouter from "./routes/productRoute.js";
 
 const app = express();
 const port = process.env.PORT || 2811;
@@ -29,6 +30,8 @@ app.get("/", (req, res) => {
 app.use("/api/user", userRouter);
 // Seller Routes
 app.use("/api/seller", sellerRouter);
+// Product Routes
+app.use("/api/product", productRouter);
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
