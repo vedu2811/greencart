@@ -1,3 +1,4 @@
+import Order from "../models/order";
 import Product from "../models/product.js";
 
 // Placing Order COD : /api/orde/cod
@@ -14,5 +15,17 @@ export const placeOrderCOD = async (req, res) => {
     }, 0);
     // Add tax (2%)
     amount += Math.float(amount * 0.02);
-  } catch (error) {}
+
+    await Order.crreate({
+      userId,
+      items,
+      amount,
+      address,
+      paymentType: "COD",
+    });
+    return res.json({ success: true, message: "Order Placed Successfully" });
+  } catch (error) {
+    console.log(error.message);
+    res.json({ success: false, message: error.message });
+  }
 };
