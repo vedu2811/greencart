@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { dummyProducts } from "../assets/assets";
 import toast from "react-hot-toast";
+import axios from "axios";
 
 // createContext is a hook - function to create context object to share data across multiple components
 export const AppContext = createContext();
@@ -100,6 +101,7 @@ export const AppContextProvider = ({ children }) => {
     getCartAmount,
     searchQuery,
     setSearchQuery,
+    axios,
   };
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
