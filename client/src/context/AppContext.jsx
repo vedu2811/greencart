@@ -4,6 +4,8 @@ import { dummyProducts } from "../assets/assets";
 import toast from "react-hot-toast";
 import axios from "axios";
 
+axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL;
+
 // createContext is a hook - function to create context object to share data across multiple components
 export const AppContext = createContext();
 
