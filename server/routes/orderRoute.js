@@ -4,7 +4,7 @@ import {
   getUserOrders,
   placeOrderCOD,
   getAllOrders,
-} from "../controllers/orderController";
+} from "../controllers/orderController.js";
 import authSeller from "../middlewares/authSeller.js";
 
 const orderRouter = express.Router();
