@@ -20,7 +20,9 @@ const SellerLogin = () => {
       } else {
         toast.error(data.message);
       }
-    } catch (error) {}
+    } catch (error) {
+      toast.error(error.message);
+    }
   };
 
   useEffect(() => {
