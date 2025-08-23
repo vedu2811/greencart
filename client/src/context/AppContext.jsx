@@ -97,6 +97,7 @@ export const AppContextProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    fetchSeller();
     fetchProducts();
   }, []);
 
