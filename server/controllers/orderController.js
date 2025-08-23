@@ -1,4 +1,4 @@
-import Order from "../models/order";
+import Order from "../models/order.js";
 import Product from "../models/product.js";
 
 // Placing Order COD : /api/orde/cod
@@ -48,7 +48,7 @@ export const getUserOrders = async (req, res) => {
 };
 
 // Get All Orders (FOR SELLERS) : /api/order/seller
-export const allOrders = async (req, res) => {
+export const getAllOrders = async (req, res) => {
   try {
     const orders = await Order.find({
       $or: [{ paymentType: "COD" }, { isPaid: true }],
