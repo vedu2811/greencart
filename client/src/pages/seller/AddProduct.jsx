@@ -11,7 +11,7 @@ const AddProduct = () => {
   const [price, setPrice] = useState("");
   const [offerPrice, setOfferPrice] = useState("");
 
-  const { axios } = useAppContext;
+  const { axios } = useAppContext();
 
   const onSubmitHandler = async (event) => {
     try {
@@ -23,7 +23,7 @@ const AddProduct = () => {
         price,
         offerPrice,
       };
-      const formData = new formData();
+      const formData = new FormData();
       formData.append("productData", JSON.stringify(productData));
       for (let i = 0; i < files.length; i++) {
         formData.append("images", files[i]);
