@@ -144,7 +144,9 @@ const AddProduct = () => {
               id="product-price"
               type="number"
               placeholder="0"
-              className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40"
+              className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40 [&::-webkit-outer-spin-button]:appearance-none 
+           [&::-webkit-inner-spin-button]:appearance-none 
+           [-moz-appearance:textfield] text-center"
               required
             />
           </div>
@@ -158,7 +160,9 @@ const AddProduct = () => {
               id="offer-price"
               type="number"
               placeholder="0"
-              className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40"
+              className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40 [&::-webkit-outer-spin-button]:appearance-none 
+           [&::-webkit-inner-spin-button]:appearance-none 
+           [-moz-appearance:textfield] text-center"
               required
             />
           </div>
