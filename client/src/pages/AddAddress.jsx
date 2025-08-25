@@ -122,7 +122,7 @@ const AddAddress = () => {
               <InputField
                 handleChange={handleChange}
                 address={address}
-                name="pincode"
+                name="zipcode"
                 type="number"
                 placeholder="Pin Code"
               />
