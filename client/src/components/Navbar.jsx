@@ -75,12 +75,20 @@ const Navbar = () => {
         </div>
 
         {!user ? (
-          <button
-            onClick={() => setShowUserLogin(true)}
-            className="cursor-pointer px-8 py-2 bg-primary hover:bg-primary-dull transition text-white rounded-full"
-          >
-            Login
-          </button>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => navigate("/seller")}
+              className="cursor-pointer px-6 py-2 bg-gray-600 hover:bg-gray-700 transition text-white rounded-full text-sm"
+            >
+              Login as Seller
+            </button>
+            <button
+              onClick={() => setShowUserLogin(true)}
+              className="cursor-pointer px-8 py-2 bg-primary hover:bg-primary-dull transition text-white rounded-full"
+            >
+              Login
+            </button>
+          </div>
         ) : (
           <div className="relative group">
             <img src={assets.profile_icon} className="w-10" alt="profile" />
@@ -115,6 +123,7 @@ const Navbar = () => {
         <button
           onClick={() => (open ? setOpen(false) : setOpen(true))}
           aria-label="Menu"
+          className="cursor-pointer hover:opacity-70 transition-opacity duration-200"
         >
           {/* Menu Icon SVG */}
           <img src={assets.menu_icon} alt="menu" />
@@ -126,33 +135,44 @@ const Navbar = () => {
         <div
           className={`${
             open ? "flex" : "hidden"
-          } absolute top-[60px] left-0 w-full bg-white shadow-md py-4 flex-col items-start gap-2 px-5 text-sm md:hidden`}
+          } absolute top-full left-0 w-full bg-white shadow-md py-4 flex-col items-start gap-2 px-5 text-sm md:hidden z-50`}
         >
-          <NavLink to="/" onCLick={() => setOpen(false)}>
+          <NavLink to="/" onClick={() => setOpen(false)}>
             Home
           </NavLink>
-          <NavLink to="/products" onCLick={() => setOpen(false)}>
+          <NavLink to="/products" onClick={() => setOpen(false)}>
             All Product
           </NavLink>
           {user && (
-            <NavLink to="/my-orders" onCLick={() => setOpen(false)}>
+            <NavLink to="/my-orders" onClick={() => setOpen(false)}>
               My Orders
             </NavLink>
           )}
-          <NavLink to="/" onCLick={() => setOpen(false)}>
+          <NavLink to="/" onClick={() => setOpen(false)}>
             Contact
           </NavLink>
 
           {!user ? (
-            <button
-              onClick={() => {
-                setOpen(false);
-                setShowUserLogin(true);
-              }}
-              className="cursor-pointer px-6 py-2 mt-2 bg-primary hover:bg-primary-dull transition text-white rounded-full text-sm"
-            >
-              Login
-            </button>
+            <div className="flex flex-col gap-2 w-full">
+              <button
+                onClick={() => {
+                  setOpen(false);
+                  navigate("/seller");
+                }}
+                className="cursor-pointer px-6 py-2 bg-gray-600 hover:bg-gray-700 transition text-white rounded-full text-sm"
+              >
+                Login as Seller
+              </button>
+              <button
+                onClick={() => {
+                  setOpen(false);
+                  setShowUserLogin(true);
+                }}
+                className="cursor-pointer px-6 py-2 bg-primary hover:bg-primary-dull transition text-white rounded-full text-sm"
+              >
+                Login
+              </button>
+            </div>
           ) : (
             <button
               onClick={logout}
