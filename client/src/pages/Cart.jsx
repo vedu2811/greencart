@@ -75,29 +75,56 @@ const Cart = () => {
               </div>
               <div>
                 <p className="hidden md:block font-semibold">{product.name}</p>
-                <div className="font-normal text-gray-500/70">
+                <div className="font-normal text-gray-500/70 flex gap-1.5 flex-col">
                   <p>
                     Weight: <span>{product.weight || "N/A"}</span>
                   </p>
                   <div className="flex items-center">
                     <p>Qty:</p>
-                    <select
-                      onChange={(e) =>
-                        updateCartItem(product._id, Number(e.target.value))
-                      }
-                      value={cartItems[product._id]}
-                      className="outline-none"
-                    >
-                      {Array(
-                        cartItems[product._id] > 9 ? cartItems[product._id] : 9
-                      )
-                        .fill("")
-                        .map((_, index) => (
-                          <option key={index} value={index + 1}>
-                            {index + 1}
-                          </option>
-                        ))}
-                    </select>
+                    <div className="flex items-center ml-2">
+                      <button
+                        onClick={() => {
+                          const newValue = Math.max(
+                            1,
+                            cartItems[product._id] - 1
+                          );
+                          updateCartItem(product._id, newValue);
+                        }}
+                        className="border border-gray-300 px-2 py-1 rounded-l hover:bg-gray-100"
+                      >
+                        -
+                      </button>
+                      <input
+                        type="number"
+                        min="1"
+                        value={cartItems[product._id]}
+                        onChange={(e) => {
+                          const value = Math.max(1, Number(e.target.value));
+                          updateCartItem(product._id, value);
+                        }}
+                        onBlur={(e) => {
+                          // Ensure minimum value of 1 when user leaves the field
+                          if (
+                            e.target.value === "" ||
+                            Number(e.target.value) < 1
+                          ) {
+                            updateCartItem(product._id, 1);
+                          }
+                        }}
+                        className="outline-none border-t border-b border-gray-300 px-2 py-1 w-12 text-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                      />
+                      <button
+                        onClick={() => {
+                          updateCartItem(
+                            product._id,
+                            cartItems[product._id] + 1
+                          );
+                        }}
+                        className="border border-gray-300 px-2 py-1 rounded-r hover:bg-gray-100"
+                      >
+                        +
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
