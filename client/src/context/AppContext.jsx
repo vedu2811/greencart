@@ -124,6 +124,14 @@ export const AppContextProvider = ({ children }) => {
     fetchProducts();
   }, []);
 
+  // Update Database Cart Items
+  useEffect(() => {
+    const updateCart = async () => {
+      try {
+      } catch (error) {}
+    };
+  }, [cartItems]);
+
   const value = {
     navigate,
     user,
