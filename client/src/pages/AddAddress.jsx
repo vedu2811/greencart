@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { assets } from "../assets/assets";
+import { useAppContext } from "../context/AppContext";
 
 // Input Field Component
 const InputField = ({ type, placeholder, name, handleChange, address }) => (
@@ -15,6 +16,8 @@ const InputField = ({ type, placeholder, name, handleChange, address }) => (
 );
 
 const AddAddress = () => {
+  const { axios, user, navigate } = useAppContext();
+
   const [address, setAddress] = useState({
     firstName: "",
     lastName: "",
@@ -37,7 +40,9 @@ const AddAddress = () => {
   };
 
   const onSubmitHandler = async (e) => {
-    e.preventDefault();
+    try {
+      e.preventDefault();
+    } catch (error) {}
   };
 
   return (
