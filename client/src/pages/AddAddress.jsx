@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { assets } from "../assets/assets";
 import { useAppContext } from "../context/AppContext";
 import toast from "react-hot-toast";
@@ -54,6 +54,12 @@ const AddAddress = () => {
       toast.error(error.message);
     }
   };
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/cart");
+    }
+  }, []);
 
   return (
     <div className="mt-16 pb-16">
