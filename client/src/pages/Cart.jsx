@@ -15,6 +15,7 @@ const Cart = () => {
     getCartAmount,
     axios,
     user,
+    setCartItems,
   } = useAppContext();
 
   const [cartArray, setCartArray] = useState([]);
@@ -65,8 +66,17 @@ const Cart = () => {
           })),
           address: selectedAddress._id,
         });
+        if (data.success) {
+          toast.success(data.message);
+          setCartItems({});
+          navigate("/my-orders");
+        } else {
+          toast.error(data.message);
+        }
       }
-    } catch (error) {}
+    } catch (error) {
+      toast.error(error.message);
+    }
   };
 
   useEffect(() => {
