@@ -62,6 +62,24 @@ export const placeOrderStripe = async (req, res) => {
       address,
       paymentType: "Online",
     });
+
+    // Stripe Gateway Initialize
+    const stripeInstance = new stripe(process.env.STRIPE_SECRET_KEY);
+
+    // Create line items for Stripe
+    const line_items = productData.map((item) => {
+      return {
+        price_data: {
+          currency: "inr",
+          product_data: {
+            name: item.name,
+          },
+          unit_amount: Math.floor(item.price + item.price * 0.02) * 100,
+        },
+        quantity: item.quantity,
+      };
+    });
+
     return res.json({ success: true, message: "Order Placed Successfully" });
   } catch (error) {
     console.log(error.message);
