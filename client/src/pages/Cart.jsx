@@ -49,7 +49,13 @@ const Cart = () => {
     }
   };
 
-  const placeOrder = async () => {};
+  const placeOrder = async () => {
+    try {
+      if (!selectedAddress) {
+        toast.error("Please select an Address");
+      }
+    } catch (error) {}
+  };
 
   useEffect(() => {
     if (products.length > 0 && cartItems) {
