@@ -116,6 +116,21 @@ export const stripeWebhooks = async (req, res) => {
   } catch (error) {
     res.status(400).send(`Webhook Error: ${error.message}`);
   }
+
+  // Handle the Event
+  switch (event.type) {
+    case "payment_intent.succeeded": {
+      const paymentIntent = event.data.object;
+      const paymentIntentId = paymentIntent.id;
+
+      // Getting Session Metadata
+      const session = await stripeInstance.checkout.session.list({
+        payment_intent: paymentIntentId,
+      });
+
+      const { orderId, userId } = session.data[0].metadata;
+    }
+  }
 };
 
 // Get Orders by User ID : /api/order/user
