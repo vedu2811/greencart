@@ -1,5 +1,6 @@
 import Order from "../models/order.js";
 import Product from "../models/product.js";
+import stripe from "stripe";
 
 // Placing Order COD : /api/orde/cod
 export const placeOrderCOD = async (req, res) => {
@@ -22,6 +23,44 @@ export const placeOrderCOD = async (req, res) => {
       amount,
       address,
       paymentType: "COD",
+    });
+    return res.json({ success: true, message: "Order Placed Successfully" });
+  } catch (error) {
+    console.log(error.message);
+    res.json({ success: false, message: error.message });
+  }
+};
+
+// Placing Order Stripe : /api/orde/stripe
+export const placeOrderStripe = async (req, res) => {
+  try {
+    const { userId, items, address } = req.body;
+    const { origin } = req.headers;
+
+    if (!address || items.length === 0) {
+      return res.json({ success: true, message: "Invalid Data" });
+    }
+
+    let productData = [];
+    // Calculate amount using items
+    let amount = await items.reduce(async (acc, item) => {
+      const product = await Product.findById(item.product);
+      productData.push({
+        name: product.name,
+        price: product.offerPrice,
+        quantity: product.quantity,
+      });
+      return (await acc) + product.offerPrice * item.quantity;
+    }, 0);
+    // Add tax (2%)
+    amount += amount * 0.02;
+
+    const order = await Order.create({
+      userId,
+      items,
+      amount,
+      address,
+      paymentType: "Online",
     });
     return res.json({ success: true, message: "Order Placed Successfully" });
   } catch (error) {
