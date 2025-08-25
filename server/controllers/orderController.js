@@ -129,6 +129,12 @@ export const stripeWebhooks = async (req, res) => {
       });
 
       const { orderId, userId } = session.data[0].metadata;
+
+      // Mark Payment as Paid
+      await Order.findByIdAndUpdate(orderId, { isPaid: true });
+      // Clear Cart
+      await User.findByIdAndUpdate(userId, { cartItems: {} });
+      break;
     }
   }
 };
