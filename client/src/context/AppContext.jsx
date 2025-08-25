@@ -136,6 +136,10 @@ export const AppContextProvider = ({ children }) => {
         toast.error(error.message);
       }
     };
+
+    if (user) {
+      updateCart();
+    }
   }, [cartItems]);
 
   const value = {
