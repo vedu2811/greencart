@@ -7,7 +7,7 @@ export const placeOrderCOD = async (req, res) => {
   try {
     const { userId, items, address } = req.body;
     if (!address || items.length === 0) {
-      return res.json({ success: true, message: "Invalid Data" });
+      return res.json({ success: false, message: "Invalid Data" });
     }
     // Calculate amount using items
     let amount = await items.reduce(async (acc, item) => {
@@ -38,7 +38,7 @@ export const placeOrderStripe = async (req, res) => {
     const { origin } = req.headers;
 
     if (!address || items.length === 0) {
-      return res.json({ success: true, message: "Invalid Data" });
+      return res.json({ success: false, message: "Invalid Data" });
     }
 
     let productData = [];
@@ -48,12 +48,12 @@ export const placeOrderStripe = async (req, res) => {
       productData.push({
         name: product.name,
         price: product.offerPrice,
-        quantity: product.quantity,
+        quantity: item.quantity,
       });
       return (await acc) + product.offerPrice * item.quantity;
     }, 0);
     // Add tax (2%)
-    amount += amount * 0.02;
+    amount += Math.floor(amount * 0.02);
 
     const order = await Order.create({
       userId,
