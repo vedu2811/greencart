@@ -149,7 +149,11 @@ export const stripeWebhooks = async (req, res) => {
       await Order.findByIdAndDelete(orderId);
       break;
     }
+    default:
+      console.error(`Unhandled event type ${event.type}`);
+      break;
   }
+  res.json({ received: true });
 };
 
 // Get Orders by User ID : /api/order/user
