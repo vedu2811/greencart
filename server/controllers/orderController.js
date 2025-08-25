@@ -136,6 +136,19 @@ export const stripeWebhooks = async (req, res) => {
       await User.findByIdAndUpdate(userId, { cartItems: {} });
       break;
     }
+    case "payment_intent.payment_failed": {
+      const paymentIntent = event.data.object;
+      const paymentIntentId = paymentIntent.id;
+
+      // Getting Session Metadata
+      const session = await stripeInstance.checkout.session.list({
+        payment_intent: paymentIntentId,
+      });
+
+      const { orderId } = session.data[0].metadata;
+      await Order.findByIdAndDelete(orderId);
+      break;
+    }
   }
 };
 
