@@ -99,6 +99,14 @@ export const placeOrderStripe = async (req, res) => {
   }
 };
 
+// Stripe Webhooks to verify Payments Action : /stripe
+export const stripeWebhooks = async (req, res) => {
+  // Stripe Gateway Initialize
+  const stripeInstance = new stripe(process.env.STRIPE_SECRET_KEY);
+
+  const sig = req.headers["stripe-signature"];
+};
+
 // Get Orders by User ID : /api/order/user
 export const getUserOrders = async (req, res) => {
   try {
