@@ -80,6 +80,18 @@ export const placeOrderStripe = async (req, res) => {
       };
     });
 
+    // Create Session
+    const session = await stripeInstance.checkout.sessions.create({
+      line_items,
+      mode: "payment",
+      success_url: `${origin}/loader?next=my-orders`,
+      cancel_url: `${origin}/cart`,
+      metadata: {
+        orderId: order._id.toString(),
+        userId,
+      },
+    });
+
     return res.json({ success: true, message: "Order Placed Successfully" });
   } catch (error) {
     console.log(error.message);
